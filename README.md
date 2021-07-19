@@ -1,6 +1,6 @@
 # who_gets_this
 
-A new Flutter application.
+A Flutter Application where a user can capture a moment and make collections and share the pdf to giver.
 
 ## Getting Started
 
