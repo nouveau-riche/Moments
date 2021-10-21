@@ -18,7 +18,7 @@ class PdfApi {
 
     drawGrid(document, page, list, inventoryModel, document);
 
-    return saveFile(document);
+    return await saveFile(document);
   }
 
   static void drawNameAndDate(PdfPage page, InventoryModel inventoryModel) {

@@ -271,7 +271,27 @@ class _EditInventoryScreenState extends State<EditInventoryScreen> {
                       color: Colors.black),
                 ),
                 SizedBox(height: mq.height * 0.02),
-                buildAddImageField(mq),
+                Row(
+                  children: [
+                    if (image != null)
+                      Container(
+                        height: mq.height * 0.06,
+                        width: mq.height * 0.065,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: Image.file(
+                            image,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    if (image != null)
+                      const SizedBox(
+                        width: 8,
+                      ),
+                    buildAddImageField(mq),
+                  ],
+                ),
                 SizedBox(height: mq.height * 0.02),
                 buildAddDescriptionField(),
                 SizedBox(height: mq.height * 0.02),
@@ -341,37 +361,39 @@ class _EditInventoryScreenState extends State<EditInventoryScreen> {
   }
 
   Widget buildAddImageField(Size mq) {
-    return GestureDetector(
-      onTap: () {
-        openDialogBox();
-      },
-      child: Container(
-        height: mq.height * 0.065,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [kButtonColor.withOpacity(0.8), kButtonColor],
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          openDialogBox();
+        },
+        child: Container(
+          height: mq.height * 0.065,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [kButtonColor.withOpacity(0.8), kButtonColor],
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              CupertinoIcons.photo_fill,
-              color: Colors.white,
-              size: 18,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              image == null ? 'Edit Photo' : 'Photo Added',
-              style: const TextStyle(
-                  fontSize: 15, fontFamily: 'Raleway', color: Colors.white),
-            ),
-          ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                CupertinoIcons.photo_fill,
+                color: Colors.white,
+                size: 18,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                image == null ? 'Edit Photo' : 'Photo Added',
+                style: const TextStyle(
+                    fontSize: 15, fontFamily: 'Raleway', color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );

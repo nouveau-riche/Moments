@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:who_gets_this/screens/forgot_password.dart';
 
 import '../constant.dart';
 import '../core/store.dart';
@@ -76,9 +77,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 const Text(
                   'Login',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 38,
-                      fontFamily: 'Raleway'),
+                      color: Colors.white, fontSize: 36, fontFamily: 'Raleway'),
                 ),
               ],
             ),
@@ -115,8 +114,11 @@ class _LogInScreenState extends State<LogInScreen> {
         elevation: 1,
         child: Container(
           width: mq.width * 0.8,
-          padding: EdgeInsets.symmetric(
-              horizontal: mq.width * 0.05, vertical: mq.height * 0.04),
+          padding: EdgeInsets.only(
+              left: mq.width * 0.05,
+              right: mq.width * 0.05,
+              top: mq.height * 0.04,
+              bottom: mq.height * 0.01),
           decoration: BoxDecoration(
             color: kSecondaryColor,
             borderRadius: BorderRadius.circular(20),
@@ -128,6 +130,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 buildEmailField(),
                 SizedBox(height: mq.height * 0.02),
                 buildPasswordField(),
+                buildForgotPassword(),
               ],
             ),
           ),
@@ -242,6 +245,25 @@ class _LogInScreenState extends State<LogInScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget buildForgotPassword() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: TextButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            CupertinoPageRoute(
+              builder: (ctx) => ForgotPasswordScreen(),
+            ),
+          );
+        },
+        child: Text(
+          'Forgot Password?',
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
     );
   }
 }

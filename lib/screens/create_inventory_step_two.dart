@@ -200,11 +200,19 @@ class _CreateInventoryStepTwoScreenState
                   height: mq.height * 0.05,
                 ),
                 buildAppBar(mq),
+                const Text(
+                  'STEP 2',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.bold),
+                ),
                 SizedBox(
-                  height: mq.height * 0.04,
+                  height: mq.height * 0.02,
                 ),
                 const Text(
-                  'Let\'s Create an',
+                  'Let\'s Create a',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -215,17 +223,6 @@ class _CreateInventoryStepTwoScreenState
                   'Memo',
                   style: TextStyle(
                       color: Colors.white, fontSize: 26, fontFamily: 'Raleway'),
-                ),
-                SizedBox(
-                  height: mq.height * 0.028,
-                ),
-                const Text(
-                  'STEP 2',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -247,40 +244,6 @@ class _CreateInventoryStepTwoScreenState
             color: Colors.white,
             size: 28,
           ),
-        ),
-        SizedBox(
-          width: mq.width * 0.15,
-        ),
-        Container(
-          height: 38,
-          width: 34,
-          child: Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.fill,
-          ),
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        Column(
-          children: [
-            Text(
-              'Personal Property',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w800),
-            ),
-            Text(
-              'Memo',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w800),
-            ),
-          ],
         ),
       ],
     );
@@ -307,7 +270,7 @@ class _CreateInventoryStepTwoScreenState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Add Item Image',
+                  'Add Item Image*',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontFamily: 'Raleway',
@@ -315,7 +278,27 @@ class _CreateInventoryStepTwoScreenState
                       color: Colors.black),
                 ),
                 SizedBox(height: mq.height * 0.02),
-                buildAddImageField(mq),
+                Row(
+                  children: [
+                    if (image != null)
+                      Container(
+                        height: mq.height * 0.06,
+                        width: mq.height * 0.065,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: Image.file(
+                            image,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    if (image != null)
+                      const SizedBox(
+                        width: 8,
+                      ),
+                    buildAddImageField(mq),
+                  ],
+                ),
                 SizedBox(height: mq.height * 0.02),
                 buildAddDescriptionField(),
                 SizedBox(height: mq.height * 0.02),
@@ -386,37 +369,39 @@ class _CreateInventoryStepTwoScreenState
   }
 
   Widget buildAddImageField(Size mq) {
-    return GestureDetector(
-      onTap: () {
-        openDialogBoxForImage();
-      },
-      child: Container(
-        height: mq.height * 0.065,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [kButtonColor.withOpacity(0.8), kButtonColor],
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          openDialogBoxForImage();
+        },
+        child: Container(
+          height: mq.height * 0.065,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [kButtonColor.withOpacity(0.8), kButtonColor],
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              CupertinoIcons.photo_fill,
-              color: Colors.white,
-              size: 18,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              image == null ? 'Add Photo' : 'Photo Added',
-              style: const TextStyle(
-                  fontSize: 15, fontFamily: 'Raleway', color: Colors.white),
-            ),
-          ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                CupertinoIcons.photo_fill,
+                color: Colors.white,
+                size: 18,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                image == null ? 'Add Photo' : 'Photo Added',
+                style: const TextStyle(
+                    fontSize: 15, fontFamily: 'Raleway', color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -458,7 +443,7 @@ class _CreateInventoryStepTwoScreenState
         cursorColor: kPrimaryColor,
         style: textStyle(),
         decoration: InputDecoration(
-          hintText: 'Add Address',
+          hintText: 'Add Recipient’s Address',
           hintStyle: hintStyle(),
           border: border(),
           focusedBorder: focusedBorder(),
@@ -498,7 +483,7 @@ class _CreateInventoryStepTwoScreenState
         cursorColor: kPrimaryColor,
         style: textStyle(),
         decoration: InputDecoration(
-          hintText: 'Add Gift Recipient*',
+          hintText: 'Add Gift Recipient\'s Name*',
           hintStyle: hintStyle(),
           border: border(),
           focusedBorder: focusedBorder(),
@@ -548,7 +533,7 @@ class _CreateInventoryStepTwoScreenState
     return GestureDetector(
       onTap: _addMore,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 4,vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
         width: mq.width * 0.36,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
@@ -589,7 +574,7 @@ class _CreateInventoryStepTwoScreenState
       onTap: _save,
       child: Container(
         width: mq.width * 0.36,
-        padding: EdgeInsets.symmetric(horizontal: 4,vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           gradient: LinearGradient(

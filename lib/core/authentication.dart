@@ -21,7 +21,6 @@ class Authentication {
       User user = userCredential.user;
 
       if (user != null) {
-        toast('LoggedIn Successfully!', false);
 
         ToggleLoading();
 

@@ -39,6 +39,8 @@ dependencies:
   share: ^2.0.4
   open_file: ^3.2.1
 
+
+
   syncfusion_flutter_pdf: ^19.2.44-beta
   path_provider: ^2.0.2
   http: ^0.13.3

@@ -41,17 +41,15 @@ BoxDecoration boxDecoration() {
 
 TextStyle textStyle() {
   return TextStyle(
-      fontWeight: FontWeight.w600,
-      fontSize: 15,
-      color: Colors.black,
+      fontSize: 13.5,
+      color: Colors.black87,
       fontFamily: 'Raleway');
 }
 
 TextStyle hintStyle() {
   return TextStyle(
-      fontWeight: FontWeight.w600,
-      fontSize: 15,
-      color: Colors.black,
+      fontSize: 13,
+      color: Colors.black87,
       fontFamily: 'Raleway');
 }
 
@@ -79,7 +77,7 @@ List<String> allRelationship = [
   'Spouse',
   'Child',
   'Partner',
-  'Granchild',
+  'Grandchild',
   'Sibling',
   'Parent',
   'Relative',
@@ -93,12 +91,12 @@ List<String> allRelationship = [
 List<DropdownMenuItem> stateDropDownList = [
   DropdownMenuItem(
     child: const Text(
-      'Select Relationship',
+      'Select Relationship*',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 0,
   ),
@@ -107,9 +105,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Spouse',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 1,
   ),
@@ -118,9 +116,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Child',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          fontSize: 13.5,
+          color: Colors.black87),
     ),
     value: 2,
   ),
@@ -129,20 +127,20 @@ List<DropdownMenuItem> stateDropDownList = [
       'Partner',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          fontSize: 13.5,
+          color: Colors.black87),
     ),
     value: 3,
   ),
   DropdownMenuItem(
     child: const Text(
-      'Granchild',
+      'Grandchild',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          fontSize: 13.5,
+          color: Colors.black87),
     ),
     value: 4,
   ),
@@ -151,9 +149,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Sibling',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 5,
   ),
@@ -162,9 +160,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Parent',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          fontSize: 13.5,
+          color: Colors.black87),
     ),
     value: 6,
   ),
@@ -173,9 +171,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Relative',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 7,
   ),
@@ -184,9 +182,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Child-In-Law',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 8,
   ),
@@ -195,9 +193,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Friend',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 9,
   ),
@@ -206,9 +204,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Charity',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 10,
   ),
@@ -217,9 +215,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Organization',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 11,
   ),
@@ -228,9 +226,9 @@ List<DropdownMenuItem> stateDropDownList = [
       'Other',
       style: const TextStyle(
           fontFamily: 'Nunito',
-          fontSize: 16,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black),
+          color: Colors.black87),
     ),
     value: 12,
   ),

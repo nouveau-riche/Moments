@@ -1,10 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:share/share.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:open_file/open_file.dart';
-import 'package:who_gets_this/widgets/center_loader.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../constant.dart';
 import '../core/pdf_api.dart';
@@ -102,6 +103,12 @@ class Inventory extends StatelessWidget {
       );
     } else if (value == 'delete') {
       openDeleteAlert(context);
+    } else if (value == 'view') {
+      PdfApi.generatePdf(
+              list: inventoryModel.list, inventoryModel: inventoryModel)
+          .then((value) {
+        OpenFile.open(value.path);
+      });
     } else {
       Navigator.of(context).push(
         CupertinoPageRoute(
@@ -170,6 +177,26 @@ class Inventory extends StatelessWidget {
                 ),
                 const Text(
                   '  Add New',
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Raleway'),
+                ),
+              ],
+            ),
+          ),
+          PopupMenuItem(
+            value: 'view',
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  CupertinoIcons.eye_fill,
+                  color: kPrimaryColor,
+                  size: 22,
+                ),
+                const Text(
+                  '  View Memo',
                   style: TextStyle(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.bold,
@@ -270,7 +297,7 @@ class Inventory extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () => onSubmit(context),
+            onPressed: () => onSubmit(),
             child: const Text(
               "NEXT",
               style: const TextStyle(
@@ -282,31 +309,16 @@ class Inventory extends StatelessWidget {
     );
   }
 
-  Future onSubmit(BuildContext context) async {
-    final mq = MediaQuery.of(context).size;
-
-    Navigator.of(context).pop();
-    showCenterLoader(context, mq, 'generating');
+  Future onSubmit() async {
 
     try {
-      // final file =
-      await PdfApi.generatePdf(
-              list: inventoryModel.list, inventoryModel: inventoryModel)
-          .then((value) {
-        print(value);
-        Share.shareFiles(['${value.path}'],
-            text: 'Personal Property Memorandum');
-      });
+       File file = await PdfApi.generatePdf(
+          list: inventoryModel.list, inventoryModel: inventoryModel);
 
-      Navigator.of(context).pop();
+      print(file.path);
 
-      // OpenFile.open(file.path);
+      await Share.shareFiles(['${file.path}'], text: 'Personal Property Memorandum');
 
-      // print(file);
-      //
-      // String memo = file.path;
-      //
-      // Share.shareFiles([file.path], text: 'Personal Property Memorandum');
     } catch (e) {
       print(e);
     }

@@ -91,11 +91,16 @@ class _CreateInventoryStepOneScreenState
                   height: mq.height * 0.05,
                 ),
                 buildAppBar(mq),
+                const Text(
+                  'STEP 1',
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontFamily: 'Raleway'),
+                ),
                 SizedBox(
-                  height: mq.height * 0.05,
+                  height: mq.height * 0.015,
                 ),
                 const Text(
-                  'If you are creating a list for you,',
+                  'If you are creating a list for yourself,',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 12.8,
@@ -119,19 +124,11 @@ class _CreateInventoryStepOneScreenState
                       fontFamily: 'Raleway'),
                 ),
                 const Text(
-                  'someone else, enter their name',
+                  'someone else, enter their legal name',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 12.8,
                       fontFamily: 'Raleway'),
-                ),
-                SizedBox(
-                  height: mq.height * 0.01,
-                ),
-                const Text(
-                  'STEP 1',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 18, fontFamily: 'Raleway'),
                 ),
               ],
             ),
@@ -153,40 +150,6 @@ class _CreateInventoryStepOneScreenState
             color: Colors.white,
             size: 28,
           ),
-        ),
-        SizedBox(
-          width: mq.width*0.15,
-        ),
-        Container(
-          height: 38,
-          width: 34,
-          child: Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.fill,
-          ),
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        Column(
-          children: [
-            Text(
-              'Personal Property',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w800),
-            ),
-            Text(
-              'Memo',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w800),
-            ),
-          ],
         ),
       ],
     );

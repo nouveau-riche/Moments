@@ -33,55 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[100],
         centerTitle: true,
         iconTheme: IconThemeData(color: kPrimaryColor),
-        title: Row(
-          children: [
-            SizedBox(
-              width: mq.width * 0.1,
-            ),
-            Container(
-              height: 38,
-              width: 34,
-              child: Image.asset(
-                'assets/images/logo.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Column(
-              children: [
-                Text(
-                  'Personal Property',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w800),
-                ),
-                Text(
-                  'Memo',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w800),
-                ),
-              ],
-            ),
-          ],
-        ),
       ),
       drawer: MyDrawer(),
       body: buildFetchInventories(mq),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          buildCreateInventoryButton(context, mq),
-          buildCloseButton(context, mq),
-        ],
+      floatingActionButton: Container(
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            buildCreateInventoryButton(context, mq),
+            buildCloseButton(context, mq),
+          ],
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -90,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           SizedBox(
-            height: mq.height * 0.25,
+            height: mq.height * 0.15,
           ),
           const Text(
             'You don’t have a',
@@ -209,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
               : Column(
                   children: [
                     SizedBox(
-                      height: mq.height * 0.04,
+                      height: mq.height * 0.02,
                     ),
                     Text(
                       'Your Memorandums',
@@ -219,13 +184,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontFamily: 'Raleway'),
                     ),
                     SizedBox(
-                      height: mq.height * 0.07,
+                      height: mq.height * 0.05,
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      itemBuilder: (ctx, index) =>
-                          Inventory(inventoryModel: list[index]),
-                      itemCount: list.length,
+                    Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemBuilder: (ctx, index) =>
+                            Inventory(inventoryModel: list[index]),
+                        itemCount: list.length,
+                      ),
+                    ),
+                    SizedBox(
+                      height: mq.height * 0.1,
                     ),
                   ],
                 );

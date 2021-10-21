@@ -7,8 +7,8 @@ class LogoDesign extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 38,
-          width: 34,
+          height: 65,
+          width: 60,
           child: Image.asset(
             'assets/images/logo.png',
             fit: BoxFit.fill,

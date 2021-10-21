@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:who_gets_this/screens/contact_us.dart';
 
 import '../core/authentication.dart';
 import '../screens/login_screen.dart';
@@ -27,6 +28,7 @@ class MyDrawer extends StatelessWidget {
           ),
           buildDrawerHeader(mq),
           buildAboutUsListTile(context, mq),
+          buildContactUsListTile(context, mq),
           buildLogOutListTile(context, mq),
         ],
       ),
@@ -86,6 +88,31 @@ class MyDrawer extends StatelessWidget {
       ),
       title: Text(
         'Logout',
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      ),
+    );
+  }
+
+  Widget buildContactUsListTile(BuildContext context, Size mq) {
+    return ListTile(
+      onTap: () {
+        Navigator.of(context).push(
+          CupertinoPageRoute(
+            builder: (ctx) => Support(),
+          ),
+        );
+      },
+      dense: true,
+      leading: Container(
+        margin: EdgeInsets.only(left: mq.width * 0.04),
+        child: Icon(
+          Icons.contact_support_rounded,
+          size: 25,
+          color: Colors.black,
+        ),
+      ),
+      title: Text(
+        'Contact us!',
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
       ),
     );

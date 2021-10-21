@@ -58,15 +58,15 @@ class InventoryDetailItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildData('Gift: ', inventoryDetailModel.gift),
+                buildData('Gift Recipient: ', inventoryDetailModel.gift),
                 const SizedBox(
                   height: 5,
                 ),
-                buildData('History: ', inventoryDetailModel.history),
+                buildData('Item Description: ', inventoryDetailModel.history),
                 const SizedBox(
                   height: 5,
                 ),
-                buildData('Realtionship: ', inventoryDetailModel.relationship),
+                buildData('Relationship: ', inventoryDetailModel.relationship),
               ],
             ),
             Spacer(),

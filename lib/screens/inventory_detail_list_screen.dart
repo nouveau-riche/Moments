@@ -23,44 +23,44 @@ class InventoryDetailScreen extends StatelessWidget {
         backgroundColor: Colors.grey[100],
         centerTitle: true,
         iconTheme: IconThemeData(color: kPrimaryColor),
-        title: Row(
-          children: [
-            SizedBox(
-              width: mq.width * 0.09,
-            ),
-            Container(
-              height: 38,
-              width: 34,
-              child: Image.asset(
-                'assets/images/logo.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Column(
-              children: [
-                Text(
-                  'Personal Property',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w800),
-                ),
-                Text(
-                  'Memo',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w800),
-                ),
-              ],
-            ),
-          ],
-        ),
+        // title: Row(
+        //   children: [
+        //     SizedBox(
+        //       width: mq.width * 0.09,
+        //     ),
+        //     Container(
+        //       height: 38,
+        //       width: 34,
+        //       child: Image.asset(
+        //         'assets/images/logo.png',
+        //         fit: BoxFit.fill,
+        //       ),
+        //     ),
+        //     const SizedBox(
+        //       width: 12,
+        //     ),
+        //     Column(
+        //       children: [
+        //         Text(
+        //           'Personal Property',
+        //           style: TextStyle(
+        //               color: Colors.black,
+        //               fontSize: 15,
+        //               fontFamily: 'Raleway',
+        //               fontWeight: FontWeight.w800),
+        //         ),
+        //         Text(
+        //           'Memo',
+        //           style: TextStyle(
+        //               color: Colors.black,
+        //               fontSize: 15,
+        //               fontFamily: 'Raleway',
+        //               fontWeight: FontWeight.w800),
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        // ),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
