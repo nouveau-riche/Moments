@@ -49,7 +49,7 @@ TextStyle textStyle() {
 TextStyle hintStyle() {
   return TextStyle(
       fontSize: 13,
-      color: Colors.black87,
+      color: Colors.black54,
       fontFamily: 'Raleway');
 }
 
@@ -96,7 +96,7 @@ List<DropdownMenuItem> stateDropDownList = [
           fontFamily: 'Nunito',
           fontSize: 13.5,
           fontWeight: FontWeight.w600,
-          color: Colors.black87),
+          color: Colors.black54),
     ),
     value: 0,
   ),

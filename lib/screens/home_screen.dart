@@ -32,6 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         backgroundColor: Colors.grey[100],
         centerTitle: true,
+        title: Text(
+          'Your Memorandums',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontFamily: 'Raleway',
+          ),
+        ),
         iconTheme: IconThemeData(color: kPrimaryColor),
       ),
       drawer: MyDrawer(),
@@ -176,16 +184,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: mq.height * 0.02,
                     ),
-                    Text(
-                      'Your Memorandums',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          fontFamily: 'Raleway'),
-                    ),
-                    SizedBox(
-                      height: mq.height * 0.05,
-                    ),
                     Expanded(
                       child: ListView.builder(
                         shrinkWrap: true,
@@ -248,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildCloseButton(BuildContext context, Size mq) {
     return GestureDetector(
       onTap: () {
-        SystemNavigator. pop();
+        SystemNavigator.pop();
       },
       child: Container(
         height: mq.height * 0.065,

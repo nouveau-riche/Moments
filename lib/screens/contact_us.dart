@@ -56,7 +56,7 @@ class Support extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                _launchURL('mailto:');
+                _launchURL('mailto:rande@whiteglovehouse.com');
               },
               child: Container(
                 width: mq.width * 0.75,
@@ -67,7 +67,7 @@ class Support extends StatelessWidget {
                 ),
                 child: Center(
                   child: const Text(
-                    'whogetsthis@gmail.com',
+                    'rande@whiteglovehouse.com',
                     style: TextStyle(
                         color: kPrimaryColor,
                         fontSize: 14,
@@ -97,7 +97,7 @@ class Support extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                _launchURL('tel:+917879641574');
+                _launchURL('tel:+1813-943-2677');
               },
               child: Container(
                 width: mq.width * 0.75,
@@ -108,7 +108,7 @@ class Support extends StatelessWidget {
                 ),
                 child: Center(
                   child: const Text(
-                    '+91 7879641574',
+                    '+1 813-943-2677',
                     style: TextStyle(
                         color: kPrimaryColor,
                         fontSize: 14,
@@ -139,19 +139,18 @@ class Support extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 _launchURL(
-                    'https://www.google.com/maps/place/Delhi/data=!4m2!3m1!1s0x390cfd5b347eb62d:0x37205b715389640?sa=X&ved=2ahUKEwiFlquiyeDxAhWCfH0KHfBuBaoQ8gEwAHoECAgQAQ');
+                    'https://www.google.com/maps/place/3325+Bayshore+Blvd+UNIT+A15,+Tampa,+FL+33629,+USA/@27.9139439,-82.4941742,17z/data=!3m1!4b1!4m5!3m4!1s0x88c2c349512e21d9:0xf963c66a022386ef!8m2!3d27.9139392!4d-82.4919855');
               },
               child: Container(
                 width: mq.width * 0.75,
-                height: mq.height * 0.06,
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  // color: kPrimaryLightColor,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Center(
                   child: const Text(
-                    'ABCd, Jaipurdd, Rajasthan 302017',
+                    '3325 Bayshore Blvd UNIT A15, Tampa, FL 33629, United States',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         color: kPrimaryColor,
                         fontSize: 14,
